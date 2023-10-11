@@ -89,7 +89,19 @@ def main():
     # display the sum of the balances in account1 and account3
     print("Sum of account1 and account3 balances: $%.2f" % account.sum(account1, account3))
 
-    
+    # display the sum of the balances of account1 and s1
+    print("Sum of account1 and s1 balances: $%.2f" % account.sum(account1, s1))
+
+    # transfer $25 out of account1 and put it into a new account named account4
+    account4 = account.transfer(account1, 25.0)
+    # account4 = account.transfer(account1, -25.0) this line of code results in a ValueError
+    # account4 = account.transfer(account1, 2500.0) this line of code results in a ValueError
+    # account4 = account.transfer(account3, 25.0)
+    # account4 = account.transfer(s1, 25.0)
+
+    # display the balance of account1 and account4
+    print("account1 balance: $%.2f" % account1.getBalance())
+    print("account4 balance: $%.2f" % account4.getBalance())
 
 if __name__ == "__main__":
     main()

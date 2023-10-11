@@ -76,7 +76,27 @@ class account(transaction):
     def sum(account1, account2):
         if account1 is None or account2 is None:
             return 0.0
+        elif not isinstance(account1, account) or not isinstance(account2, account):
+            return 0.0
         else:
             return account1.__balance + account2.__balance
     
+    @staticmethod
+    def transfer(a, amount: float):
+        try:
+            if amount < 0.0:
+                raise ValueError("Transfer amount is less than zero")
+            elif a is None:
+                raise ValueError("a is None")
+            elif not isinstance(a, account):
+                raise ValueError("a is not an instance of account")
+            elif amount > a.getBalance():
+                raise ValueError("Transfer amount exceeded account balance")
+        except ValueError as e:
+            exit(e)
+        else:
+            a.debit(amount)
+            newAccount = account(amount)
+            return newAccount
+
     
