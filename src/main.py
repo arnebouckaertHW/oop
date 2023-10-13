@@ -1,4 +1,5 @@
 from account.account import *
+from savingsaccount.savingsaccount import *
 
 def main():
     # create an account object named account1 with a balance of 100.0
@@ -102,6 +103,50 @@ def main():
     # display the balance of account1 and account4
     print("account1 balance: $%.2f" % account1.getBalance())
     print("account4 balance: $%.2f" % account4.getBalance())
+
+    # create a savings account object named savingsAccount1
+    # with a balance of 10000.0 and an interest rate of 6%
+    savingsAccount1 = savingsaccount(10000.0, 0.06)
+
+    # display the balance of savingsAccount1
+    print(f"Balance in savingsAccount1 {savingsAccount1.getBalance()}")
+
+    # display the interest of savingsAccount1
+    print(f"Interest of savingsAccount1 {savingsAccount1.getInterest()}")
+
+    # display if the balance of savingsAccount1 is empty
+    print("Is savingsAccount1 empty?", savingsAccount1.isEmpty())
+
+    # display a string representation of savingsAccount1
+    print(savingsAccount1)
+
+    # display the result of testing if savingsAccount1 is equal to account1
+    print("Is savingsAccount1 equal to account1?", savingsAccount1.__eq__(account1))
+
+    # display the result of testing if savingsAccount1 is equal to account3
+    print("Is savingsAccount1 equal to account3?", savingsAccount1.__eq__(account3))
+
+    # create a savings account object named savingsAccount2 
+    # with a balance of 10000.0 and an interest rate of 5%
+    savingsAccount2 = savingsaccount(10000.0, 0.05)
+
+    # display the result of testing if savingsAccount1 is equal to savingsAccount2
+    print("Is savingsAccount1 equal to savingsAccount2?", savingsAccount1.__eq__(savingsAccount2))
+
+    # change the interest rate of savingsAccount2 to 6%
+    savingsAccount2.setInterestRate(0.06)
+
+    # display the result of testing if savingsAccount1 is equal to savingsAccount2
+    print("Is savingsAccount1 equal to savingsAccount2?", savingsAccount1.__eq__(savingsAccount2))
+
+    # credit savingsAccount2 with $1000
+    savingsAccount2.credit(1000.0)
+
+    # display the balance of savingsAccount2
+    print("$%.2f" % savingsAccount2.getBalance())
+
+    # debit savingsAccount2 with $1000
+    savingsAccount2.debit(1000.0)
 
 if __name__ == "__main__":
     main()
