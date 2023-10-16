@@ -12,6 +12,9 @@ class savingsaccount(account):
     def __init__(self, balance, interestRate):
         """Constructs a savings account with a specified balance and interest rate.
 
+        :ivar __balance: balance of this savings account
+        :ivar __interestRate: interest rate of this savings account
+
         Args:
             balance (float): balance
             interestRate (float): interest rate
